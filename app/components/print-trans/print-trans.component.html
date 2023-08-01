@@ -1,0 +1,56 @@
+<div class="column" style="margin-top:100px;">
+  <!-- <div class="card"> -->
+  <div class="container" style="height:500px; margin-left: 220px;">
+    <br />
+
+    <div>
+
+      <h2 class="text-secondary" style="padding: 10px 0 15px 15px;">Account Transactions
+        <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+          &nbsp;Back</a></h2>
+      <hr style="margin-left: 0px; width:118%;height:5px;border-width:0;color:orange;background-color:orange">
+    </div>
+    <div style="width: 1310px;">
+      <!-- Two way Data Binding-->
+      <div class="text-left" style="font-size: 20px; margin-left:950px;">
+        <label class="text-dark font-weight-bold">
+          Filter By Description:
+        </label>
+        &nbsp;
+        <select [(ngModel)]="searchText">
+          <option [ngValue]="Amount">All</option>
+          <option value="credit">Credited</option>
+          <option value="debit">Debited</option>
+        </select>
+        <!-- <input type="text" class="form-control"[(ngModel)]="searchText" placeholder="Enter text to search" /> -->
+      </div>
+    </div>
+    <div class="row1">
+
+      <ng-container *ngIf="(users | trans:searchText) as result">
+        <table class="table table-fixed table-responsive">
+          <thead>
+            <tr>
+              <th class="table-primary">Transaction ID</th>
+              <th class="table-primary">Date & Time</th>
+              <th class="table-primary">Descrisption</th>
+              <th class="table-primary">Debit</th>
+              <th class="table-primary">Credit</th>
+              <th class="table-primary">Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of result">
+              <td class="table-light">{{user.transaction_Number}}</td>
+              <td class="table-light">{{user.transaction_Time}}</td>
+              <td class="table-light ">{{user.description}}</td>
+              <td class="table-light">{{user.debit}}</td>
+              <td class="table-light">{{user.credit}}</td>
+              <td class="table-light">{{user.balance}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.row1{
+    margin-top: 200px;
+    border: 2px solid white;
+    padding: 5px 5px 0px 5px;
+}
+table{
+    border: hidden;
+    width: 1100px;
+}
+th{
+    font-size: 20px;
+    color:gray;
+    padding-left: 15px;
+    width: 800px;
+}
+
+td{
+    font-size: 20px;
+    color: #34465d;
+    height:50px;
+    width: 1200px;
+}
+
+.column {
+    float: left;
+    width: 1800px;
+    margin-left: -300px;
+    margin-top:0px;
+    margin-bottom: 16px;
+    padding: 0 8px 0 50px;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }

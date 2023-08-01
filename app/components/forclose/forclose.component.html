@@ -1,0 +1,85 @@
+<div class="column" style="margin-top:200px;">
+    <!-- <div class="card"> -->
+    <div class="container" style="height:500px; margin-left: 50px;">
+        <br />
+
+        <div>
+
+            <h2 class="text-secondary" style="padding: 10px 0 15px 15px;">Loan Foreclose
+                <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                    &nbsp;Back</a></h2>
+            <hr style="margin-left: 0px; width:100%;height:5px;border-width:0;color:orange;background-color:orange">
+
+            <div class="row1">
+                <table class="table table-bordered table-responsive table-hover">
+                    <tr>
+                        <th class="table-primary">Account Number</th>
+                        <th class="table-primary">Pending Loan Amount</th>
+                        <th class="table-primary">Available Balance</th>
+
+                    </tr>
+                    <tr>
+                        <td class="table-light">{{users.account_Number}}</td>
+                        <td class="table-light ">{{users.loan_Amount}}</td>
+                        <td class="table-light ">{{users.balance_Amount}}</td>
+
+                    </tr>
+
+                </table>
+                <form [formGroup]="forcloseForm" (ngSubmit)="loanForeClose()">
+                    <div class="form-group">
+                        <label for="password" style="font-size: 20px; font-weight: bold;">Password<span
+                            class="text-danger">*</span></label>
+                        <input type="password" style="font-size: 20px;" class="form-control" formControlName="password"
+                          placeholder="Enter Password" />
+                      <div style="font-size: 20px;" *ngIf="submitted && forcloseForm.controls.password.errors">
+                        <div class="text-danger" *ngIf="forcloseForm.controls.password.errors.required">
+                          Password is required!
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-center">
+                        &nbsp;&nbsp;&nbsp;<button class="btn btn-success">Proceed</button> &nbsp;
+                        <button class="btn btn-danger" (click)=cancel()>Cancel</button> &nbsp;
+                      </div>
+                      <br />
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row1">
+    <div class="text-light" style="background-color:#555;">
+        <h3 class="text-light" style="padding: 10px 0 15px 15px;">Loan Foreclose
+            <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                &nbsp;Back</a></h3>
+    </div>
+    <div>
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th class="table-primary">Account Number</th>
+                <th class="table-primary">Pending Loan Amount</th>
+                <th class="table-primary">Available Balance</th>
+
+            </tr>
+            <tr>
+                <td class="table-light">{{users.accNumber}}</td>
+                <td class="table-light ">{{users.loanAmount}}</td>
+                <td class="table-light ">{{users.balanceAmt}}</td>
+
+            </tr>
+
+        </table>
+    </div>
+    <div>
+
+        <br />
+        <div class="text-center">
+            &nbsp;&nbsp;&nbsp;<button class="btn btn-success" (click)=loanForeClose()>Proceed</button> &nbsp;
+            <button class="btn btn-danger" (click)=cancel()>Cancel</button> &nbsp;
+        </div>
+        <br />
+    </div>
+</div> -->

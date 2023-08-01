@@ -1,0 +1,156 @@
+<div class="column" style="margin-top:200px;">
+    <!-- <div class="card"> -->
+    <div class="container" style="height:650px;">
+        <br />
+        <div>
+
+            <h2 class="text-secondary" style="padding: 10px 0 15px 15px;">EMI Calculator
+                <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                    &nbsp;Back</a></h2>
+            <hr style="margin-left: 0px; width:100%;height:5px;border-width:0;color:orange;background-color:orange">
+            <br />
+        </div>
+        <div>
+            <form class="log" [formGroup]="emiForm" (ngSubmit)="calEMI()">
+                <div class="form-group row">
+                    <label for="sel" class="col-lg-4 text-dark text-right font-weight-bold"
+                        style="font-size: 20px;">Loan Type<span class="text-danger">*</span></label>
+                    <div class="col-lg-8">
+                        <select class="form-control" formControlName="sel" style="font-size: 20px;" required>
+                            <option value="" disabled selected>Select Loan Type</option>
+                            <option>Business Loan</option>
+                            <option>Education Loan</option>
+                            <option>Gold Loan</option>
+                            <option>Home Loan</option>
+                            <option>Personal Loan</option>
+                            <option>Vehicle Loan</option>
+                        </select>
+                        <div style="font-size: 20px;" *ngIf="submitted && emiForm.controls.sel.errors">
+                            <div class="text-danger" *ngIf="emiForm.controls.sel.errors.required">
+                                Loan Type required..!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Age text box-->
+                <div class="form-group row">
+                    <label for="loan" class="col-lg-4 text-dark text-right font-weight-bold">
+                        Loan Amount<span class="text-danger">*</span>
+                    </label>
+                    <div class="col-lg-8">
+                        <input type="number" class="form-control" placeholder="Enter Loan Amount (eg: 50000)"
+                            formControlName="loan" />
+
+                        <div style="font-size: 20px;" *ngIf="submitted && emiForm.controls.loan.errors">
+                            <div class="text-danger" *ngIf="emiForm.controls.loan.errors.required">
+                                Amount is required..!
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="emiForm.controls.loan.errors.min||emiForm.controls.loan.errors.max">
+                                Amount must be between 100000 and 10000000..!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF Age-->
+
+                <!-- Mobile number text box-->
+                <div class="form-group row">
+                    <label for="tenure" class="col-lg-4 text-dark text-right font-weight-bold">
+                        Loan Tenure<span class="text-danger">*</span>
+                    </label>
+                    <div class="col-lg-8">
+                        <input type="number" class="form-control" placeholder="Enter Loan Tenure in Years (eg: 2)"
+                            formControlName="tenure" />
+
+                        <div style="font-size: 20px;" *ngIf="submitted && emiForm.controls.tenure.errors">
+                            <div class="text-danger" *ngIf="emiForm.controls.tenure.errors.required">
+                                Tenure is required..!
+                            </div>
+                            <div class="text-danger"
+                                *ngIf="emiForm.controls.tenure.errors.min || emiForm.controls.tenure.errors.max">
+                                Tenure must be between 1 and 10 years..!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF MOBILE NUMBER-->
+                <div class="b1 col-lg-12 text-center">
+                    <button class="btn btn-success" style="font-size: 20px;">Submit</button>&nbsp; &nbsp;
+                    <button class="btn btn-danger" style="font-size: 20px;" type="reset">Reset</button>&nbsp; &nbsp;
+                </div>
+                <br />
+                <div [hidden] *ngIf="invalidLogin">
+                    <div class="emi col-lg-12 text-center" style="margin-left: 150px;">
+                        Monthly EMI Amount: {{emi| currency:'INR'}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- <div class="row1">
+    <div class="text-light" style="background-color:#555;">
+        <h3 class="text-light" style="padding: 10px 0 15px 15px;">EMI Calculator
+            <a class="b2 btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                &nbsp;Back</a></h3>
+    </div>
+    <div>
+        <form class="log" [formGroup]="emiForm" (ngSubmit)="calEMI()">
+            <!--Age text box-
+            <div class="form-group row">
+                <label for="loan" class="col-lg-4 text-dark text-right font-weight-bold">
+                    Loan Amount<span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Loan Amount (eg: 50000)"
+                        formControlName="loan" />
+
+                    <div *ngIf="submitted && emiForm.controls.loan.errors">
+                        <div class="text-danger" *ngIf="emiForm.controls.loan.errors.required">
+                            Amount is required..!
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="emiForm.controls.loan.errors.min||emiForm.controls.loan.errors.max">
+                            Amount must be between 30000 and 5000000..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Age-->
+
+<!-- Mobile number text box-
+            <div class="form-group row">
+                <label for="tenure" class="col-lg-4 text-dark text-right font-weight-bold">
+                    Loan Tenure<span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Loan Tenure in Years (eg: 2)"
+                        formControlName="tenure" />
+
+                    <div *ngIf="submitted && emiForm.controls.tenure.errors">
+                        <div class="text-danger" *ngIf="emiForm.controls.tenure.errors.required">
+                            Tenure is required..!
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="emiForm.controls.tenure.errors.min || emiForm.controls.tenure.errors.max">
+                            Tenure must be between 1 and 5 years..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF MOBILE NUMBER
+            <div class="b1 col-lg-12 text-center">
+                <button class="btn btn-success">Submit</button>&nbsp; &nbsp;
+                <button class="btn btn-danger" type="reset">Reset</button>&nbsp; &nbsp;
+            </div>
+            <br />
+            <div [hidden] *ngIf="invalidLogin">
+                <div class="emi col-lg-12 text-center" style="margin-left: 150px;">
+                    Monthly EMI Amount: {{emi| currency:'INR'}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->

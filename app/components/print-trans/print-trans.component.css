@@ -1,0 +1,52 @@
+.row1{
+    width: 1310px;
+    /* border: 2px solid gray; */
+    padding: 5px 5px 0px 5px;
+}
+table{
+    font-size: 20px;
+    width: 1300px;
+    table-layout: fixed;
+   
+}
+
+th{
+    border: hidden;
+    text-align: center;
+    padding-left: 15px;
+    width: 350px;
+}
+td{
+    text-align: center;
+    height:50px;
+    width: 1200px;
+}
+.btn
+{
+    font-size: 20px;
+    margin-right: -180px;
+    padding:5px 10 15px 0;
+}
+tbody{
+    display: block;
+    overflow: auto;
+}
+.table-fixed tbody {
+    height: 550px;
+    overflow: auto;
+    width: 100%;
+    }
+
+    .column {
+        float: left;
+        width: 1800px;
+        margin-left: -300px;
+        margin-top:0px;
+        margin-bottom: 16px;
+        padding: 0 8px 0 50px;
+      }
+      .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+   

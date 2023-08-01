@@ -1,0 +1,22 @@
+<div class="row1">
+  <div class="text-light" style="background-color:#555;">
+    <h3 class="text-light" style="padding: 10px 0 15px 15px;">Balance Summary
+      <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+        &nbsp;Back</a>
+    </h3>
+  </div>
+  <div>
+    <table class="table table-bordered table-responsive table-hover">
+      <tr>
+        <th class="table-primary">Account Number</th>
+        <th class="table-primary">Available Balance</th>
+
+      </tr>
+      <tr>
+        <td class="table-light">{{users.accNumber}}</td>
+        <td class="table-light ">{{users.balanceAmt}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>

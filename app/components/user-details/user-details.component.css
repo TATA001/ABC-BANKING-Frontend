@@ -1,0 +1,51 @@
+.sidebar {
+    height: 1092px;
+    width: 370px;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 16px;
+    padding-left: 15px;
+    overflow: visible;
+    background-repeat: no-repeat;
+    background-size:cover; 
+    
+  }
+
+  hr{
+    border-width: 2px;
+  }
+  
+  /* Style sidebar links */
+  .sidebar a {
+    padding: 20px 8px 6px 20px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #34465d;
+    display: block;
+  }
+  
+  /* Style links on mouse-over */
+  .sidebar a:hover {
+    color: #4d9699;
+  }
+
+  .column {
+    float: left;
+    width: 1800px;
+    margin-left: 400px;
+    margin-top:0px;
+    margin-bottom: 16px;
+    padding: 0 8px 0 50px;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  
+  
+  
+ 

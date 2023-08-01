@@ -1,0 +1,78 @@
+<br />
+<div id="d1">
+    <div class="col-lg-12 container-fluid bg" style="background-image: url(assets/images/bg11.jpg);">
+        <div class="row">
+            <div id="d5" class="offset-lg-4 col-lg-4 offset-sm-4 col-md-4 offset-sm-4 col-sm-4">
+                <div class="d-flex justify-content-center">
+                    <div class="brand_logo_container">
+                        <img src="assets/images/icon.png" class="brand_logo" alt="Logo">
+                    </div>
+                </div>
+                <form id="log1" [formGroup]="loginForm" (ngSubmit)="verifyLogin()">
+                    <!--Username input field-->
+                    <div class="form-group">
+                        <label for="usrid">Username<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" formControlName="usrid" placeholder="Enter Username" />
+
+                        <!--Predefined Structural Directive: *ngIf -->
+                        <div *ngIf="submitted && loginForm.controls.usrid.errors" class="error">
+                            <div class="text-danger" *ngIf="loginForm.controls.usrid.errors.required">
+                                Username is required
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Username -->
+
+                    <!--Password input field-->
+                    <div class="form-group">
+                        <label for="password">Password<span class="text-danger">*</span></label>
+                        <input [type]="passwordType" class="form-control" formControlName="password"
+                            placeholder="Enter Password" id="pass" />
+                        <div *ngIf="passwordShow">
+                            <span class="fas fa-eye errspan" (click)="show()"></span>
+                        </div>
+                        <div *ngIf="!passwordShow">
+                            <span class="fas fa-eye-slash errspan" (click)="show()"></span>
+                        </div>
+                        <div *ngIf="submitted && loginForm.controls.password.errors">
+                            <div class="text-danger" *ngIf="loginForm.controls.password.errors.required">
+                                Password is required
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of password-->
+
+                    &nbsp;&nbsp;&nbsp;<button class="btn btn-success btn-block">Login</button> &nbsp;
+                    <button class="btn btn-danger btn-block" type="reset">Reset</button> &nbsp;
+                    <br />
+                    <div>
+                        <p class="text-info font-weight-bold">New User?<a class="text-danger" routerLink="/signup">
+                                Create an Account </a></p>
+                    </div>
+                    <div>
+                        <p class="text-info font-weight-bold">Forget Password?<a class="text-danger"
+                                routerLink="/forget"> Click Here </a></p>
+                    </div>
+                </form>
+                <br /><br />
+            </div>
+            <div class="offset-lg-2 col-lg-10">
+                <p><b style="color: teal;font-size: larger;">Important Security Information</b><br /></p>
+                <ul style="list-style-type:none;">
+                    <li><i class='fas fa-caret-right' style="color: coral"></i> &nbsp;Before logging in, please ensure
+                        that the URL address on the address bar of your internet
+                        browser starts with http://localhost:4200</li>
+                    <li><i class='fas fa-caret-right' style="color: coral"></i> &nbsp;Never provide your Username or
+                        password to any one on phone or in response to a mail. Report a
+                        suspicious mail.</li>
+                    <li><i class='fas fa-caret-right' style="color: coral"></i> &nbsp;Do not enter login or other
+                        sensitive information in any pop up window.</li>
+                    <li><i class='fas fa-caret-right' style="color: coral"></i> &nbsp;Beware of Phishing attacks,
+                        usually made through email, phone calls, SMS etc seeking your
+                        personal and confidential information.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

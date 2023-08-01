@@ -1,0 +1,65 @@
+.d{
+    overflow: visible;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height:92vh; 
+}
+
+#d1{
+    margin-right: -30px;
+    margin-top:-22px;
+}
+
+.chk{
+    margin-left: 35%;
+}
+.log{
+    overflow-y: auto;
+    border: 2px solid white;
+    height: 810px;
+    padding: 30px 40px;
+    margin-top: 100px;
+    box-shadow: -5px 2px 62px 8px rgba(0,0,0,0.5);
+}
+
+label{
+    font-size: 20px;
+    color:#555;
+}
+
+input{
+  font-size: 20px;
+}
+select{
+  font-size: 20px;
+}
+::-webkit-scrollbar {
+   /* display: none;*/
+    height: 10px;
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .errspan {
+    float: right;
+    margin-right: 6px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+    color:#555;
+}

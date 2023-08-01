@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="card" style="margin-top: 50px;margin-left: 70px; background-color:steelblue; width: 400px;height: 150;">
+        <br /><i class='far fa-user-circle text-light text-right'
+            style="font-size: 70px; margin-right: 25px; margin-top: 20px;"></i>
+        <p class="text-light" style="margin-left: 10px;margin-top:-90px; font-size: 50px;">{{count}}</p>
+        <p class="text-light" style="font-size: 20px; margin-left: 10px; margin-top: -20px;"><b>Accounts</b></p>
+    </div>
+    <div class="card" style="margin-top: 50px; margin-left: 150px; background-color:#4cbb17;width: 400px;height: 150;">
+        <br /><i class='fas fa-landmark text-light text-right'
+            style="font-size: 70px; margin-right: 25px; margin-top: 20px;"></i>
+        <p class="text-light" style="margin-left: 10px;margin-top:-90px; font-size: 50px;">
+            {{balance | currency:'INR': 'symbol' : '1.0-0'}}
+        </p>
+        <p class="text-light" style="font-size: 20px; margin-left: 10px; margin-top: -20px;"><b>Amount in Bank</b></p>
+    </div>
+    <div class="card" style="margin-top: 50px; margin-left: 150px; background-color:crimson;width: 400px;height: 150;">
+        <br /><i class='fas fa-coins text-light text-right'
+            style="font-size: 70px; margin-right: 25px; margin-top: 20px;"></i>
+        <p class="text-light" style="margin-left: 10px;margin-top:-90px; font-size: 50px;">
+            {{loan | currency:'INR': 'symbol' : '1.0-0'}}
+        </p>
+        <p class="text-light" style="font-size: 20px; margin-left: 10px; margin-top: -20px;"><b>Pending Loans</b></p>
+    </div>
+</div>
+<hr style="height: 2px;">
+<br />
+<div style="margin-left: -50px;">
+    <!-- Two way Data Binding-->
+    <div class="form-group">
+        <label for="firstName" class="text-dark font-weight-bolder" style="font-size: 20px;">
+            Search By First Name:
+        </label>
+        <input type="text" class="form-control" style=" font-size: 20px;" [(ngModel)]="searchText"
+            placeholder="Enter text to Search" />
+    </div>
+</div>
+<div class="row1">
+    <div>
+        <ng-container *ngIf="(users | search:searchText) as result">
+            <table class="table table-fixed table-responsive">
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>PAN Number</th>
+                        <th>Mobile Number</th>
+                        <th>E-mail</th>
+                        <th>Username</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of result">
+                        <td>{{user.account_Number}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.userId}}</td>
+                        <td>{{user.phone_Number}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.userName}}</td>
+                        <td>
+                            &nbsp;&nbsp;<button class="btn btn-warning" (click)="editUser(user)">Edit</button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="result.length==0" colspan="7"><br /><br />
+                            <h3 class="text-center text-danger">
+                                Sorry, User does not exist..!
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!users || users.length ==0">
+                        <th colspan="7">
+                            <p class="text-right text-danger">
+                                Sorry, No users Available..!
+                            </p>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
+    </div>
+</div>

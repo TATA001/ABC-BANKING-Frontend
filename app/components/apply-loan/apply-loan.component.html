@@ -1,0 +1,269 @@
+<div class="column" style="margin-top: 200px;">
+    <!-- <div class="card"> -->
+    <div class="container" style="height:700px;">
+        <br />
+        <div>
+            <h2 class="text-secondary" style="padding: 10px 0 15px 15px;">Loan Application
+                <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                    &nbsp;Back</a></h2>
+            <hr style="margin-left: 10px; width:100%;height:5px;border-width:0;color:orange;background-color:orange">
+            <br />
+            <div>
+                <form class="row1" class="log" [formGroup]="loanForm" (ngSubmit)="applyLoan()">
+                    <!--Loan type dropdown box-->
+                    <div class="form-group row">
+                        <label class="offset-lg-2 col-lg-10 text-danger font-weight-bold text-center">Note: To apply
+                            loan,
+                            Balance amount must be greater than Rs.50000</label>
+                    </div>
+                    <div class="form-group row">
+                        <label for="sel" class="col-lg-4 text-dark text-right font-weight-bold">Loan Type<span
+                                class="text-danger">*</span></label>
+                        <div class="col-lg-8">
+                            <select class="form-control" formControlName="sel" required>
+                                <option value="" disabled selected>Select Loan Type</option>
+                                <option>Business Loan</option>
+                                <option>Education Loan</option>
+                                <option>Gold Loan</option>
+                                <option>Home Loan</option>
+                                <option>Personal Loan</option>
+                                <option>Vehicle Loan</option>
+                            </select>
+                            <div style="font-size: 20px;" *ngIf="submitted && loanForm.controls.sel.errors">
+                                <div class="text-danger" *ngIf="loanForm.controls.sel.errors.required">
+                                    Loan Type required..!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of dropdown-->
+
+                    <!-- Loan Amt text box-->
+                    <div class="form-group row">
+                        <label for="loan" class="col-lg-4 text-dark text-right font-weight-bold">
+                            Loan Amount<span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control" placeholder="Enter Loan Amount (eg: 50000)"
+                                formControlName="loan" />
+
+                            <div style="font-size: 20px;" *ngIf="submitted && loanForm.controls.loan.errors">
+                                <div class="text-danger" *ngIf="loanForm.controls.loan.errors.required">
+                                    Amount is required..!
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="loanForm.controls.loan.errors.min || loanForm.controls.loan.errors.max">
+                                    Amount must be between 100000 and 10000000..!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END OF Loan Amt-->
+
+                    <!-- Asset type dropdown box-->
+                    <!-- <div class="form-group row">
+                            <label for="sel1" class="col-lg-4 text-danger text-right font-weight-bold">Asset Type:</label>
+                            <div class="col-lg-8">
+                                <select class="form-control" formControlName="sel1" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option>AutoMobiles</option>
+                                    <option>Bonds</option>
+                                    <option>Gold</option>
+                                    <option>House</option>
+                                    <option>Land</option>
+                                    <option>Stocks</option>
+                                </select>
+                                <div *ngIf="submitted && loanForm.controls.sel1.errors">
+                                    <div class="text-danger" *ngIf="loanForm.controls.sel1.errors.required">
+                                        required..!
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    <!-- END OF Asset dropdown-->
+
+                    <!-- Asset Value text box-->
+                    <div class="form-group row">
+                        <label for="asset" class="col-lg-4 text-dark text-right font-weight-bold">
+                            Asset Value<span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control" placeholder="Enter Asset Value (eg: 100000)"
+                                formControlName="asset" />
+
+                            <div style="font-size: 20px;" *ngIf="submitted && loanForm.controls.asset.errors">
+                                <div class="text-danger" *ngIf="loanForm.controls.asset.errors.required">
+                                    Asset Value is required..!
+                                </div>
+                                <div class="text-danger" *ngIf="loanForm.controls.asset.errors.min">
+                                    Asset Value must be greater than 140000..!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END OF Asset Value-->
+
+                    <!-- Loan Tenure text box-->
+                    <div class="form-group row">
+                        <label for="tenure" class="col-lg-4 text-dark text-right font-weight-bold">
+                            Loan Tenure<span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control" placeholder="Enter Loan Tenure in Years (eg: 2)"
+                                formControlName="tenure" />
+
+                            <div style="font-size: 20px;" *ngIf="submitted && loanForm.controls.tenure.errors">
+                                <div class="text-danger" *ngIf="loanForm.controls.tenure.errors.required">
+                                    Tenure is required..!
+                                </div>
+                                <div class="text-danger"
+                                    *ngIf="loanForm.controls.tenure.errors.min || loanForm.controls.tenure.errors.max">
+                                    Tenure must be between 1 and 10 years..!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END OF Loan tenure-->
+                    <br />
+                    <!-- Submit and Cancel Buttons-->
+                    <div class="text-center" style="margin-left: 300px;">
+                        <button class="btn btn-success" style="font-size: 20px;">Submit</button>&nbsp; &nbsp;
+                        <button class="btn btn-danger" style="font-size: 20px;" type="reset">Reset</button>&nbsp; &nbsp;
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row1">
+    <div class="text-light" style="background-color:#555;">
+        <h3 class="text-light" style="padding: 10px 0 15px 15px;">Loan Application
+            <a class="btn btn-secondary" routerLink="/user" style="float: right;">
+                <i class="fas fa-angle-left"></i> &nbsp;Back</a>
+        </h3>
+    </div>
+    <div>
+        <form class="log" [formGroup]="loanForm" (ngSubmit)="applyLoan()">
+            <!--Loan type dropdown box
+            <div class="form-group row">
+                <label class="offset-lg-3 col-lg-8 text-danger font-weight-bold text-center">Note: To apply loan,
+                    Balance amount must be greater than Rs.50000</label>
+            </div>
+            <div class="form-group row">
+                <label for="sel" class="col-lg-4 text-dark text-right font-weight-bold">Loan Type<span
+                        class="text-danger">*</span></label>
+                <div class="col-lg-8">
+                    <select class="form-control" formControlName="sel" required>
+                        <option value="" disabled selected>Select Loan Type</option>
+                        <option>Business Loan</option>
+                        <option>Education Loan</option>
+                        <option>Gold Loan</option>
+                        <option>Home Loan</option>
+                        <option>Personal Loan</option>
+                        <option>Vehicle Loan</option>
+                    </select>
+                    <div *ngIf="submitted && loanForm.controls.sel.errors">
+                        <div class="text-danger" *ngIf="loanForm.controls.sel.errors.required">
+                            Loan Type required..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of dropdown
+
+            <!-- Loan Amt text box
+            <div class="form-group row">
+                <label for="loan" class="col-lg-4 text-dark text-right font-weight-bold">
+                    Loan Amount<span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Loan Amount (eg: 50000)"
+                        formControlName="loan" />
+
+                    <div *ngIf="submitted && loanForm.controls.loan.errors">
+                        <div class="text-danger" *ngIf="loanForm.controls.loan.errors.required">
+                            Amount is required..!
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="loanForm.controls.loan.errors.min || loanForm.controls.loan.errors.max">
+                            Amount must be between 100000 and 10000000..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Loan Amt-->
+
+<!-- Asset type dropdown box-->
+<!-- <div class="form-group row">
+                <label for="sel1" class="col-lg-4 text-danger text-right font-weight-bold">Asset Type:</label>
+                <div class="col-lg-8">
+                    <select class="form-control" formControlName="sel1" required>
+                        <option value="" disabled selected>Select</option>
+                        <option>AutoMobiles</option>
+                        <option>Bonds</option>
+                        <option>Gold</option>
+                        <option>House</option>
+                        <option>Land</option>
+                        <option>Stocks</option>
+                    </select>
+                    <div *ngIf="submitted && loanForm.controls.sel1.errors">
+                        <div class="text-danger" *ngIf="loanForm.controls.sel1.errors.required">
+                            required..!
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+<!-- END OF Asset dropdown-->
+
+<!-- Asset Value text box
+            <div class="form-group row">
+                <label for="asset" class="col-lg-4 text-dark text-right font-weight-bold">
+                    Asset Value<span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Asset Value (eg: 100000)"
+                        formControlName="asset" />
+
+                    <div *ngIf="submitted && loanForm.controls.asset.errors">
+                        <div class="text-danger" *ngIf="loanForm.controls.asset.errors.required">
+                            Asset Value is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="loanForm.controls.asset.errors.min">
+                            Asset Value must be greater than 140000..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Asset Value-->
+
+<!-- Loan Tenure text box
+            <div class="form-group row">
+                <label for="tenure" class="col-lg-4 text-dark text-right font-weight-bold">
+                    Loan Tenure<span class="text-danger">*</span>
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Loan Tenure in Years (eg: 2)"
+                        formControlName="tenure" />
+
+                    <div *ngIf="submitted && loanForm.controls.tenure.errors">
+                        <div class="text-danger" *ngIf="loanForm.controls.tenure.errors.required">
+                            Tenure is required..!
+                        </div>
+                        <div class="text-danger"
+                            *ngIf="loanForm.controls.tenure.errors.min || loanForm.controls.tenure.errors.max">
+                            Tenure must be between 1 and 10 years..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Loan tenure-->
+<!-- Submit and Cancel Buttons
+            <div class="text-center">
+                <button class="btn btn-success">Submit</button>&nbsp; &nbsp;
+                <button class="btn btn-danger" type="reset">Reset</button>&nbsp; &nbsp;
+            </div>
+        </form>
+    </div> -->
+
+<!-- </div> -->

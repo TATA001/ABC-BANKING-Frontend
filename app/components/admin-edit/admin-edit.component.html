@@ -1,0 +1,147 @@
+<div style="margin-top: 200px;">
+<h1 class="text-center" style="padding: 10px 0 15px 15px; color: #34465d; font-family: cursive; font-size: 50px;">Update User Details
+</h1>
+<div class="id" style="margin-left: 100px;">
+    <br/>
+    <div>
+        <form class="log" [formGroup]="editForm" (ngSubmit)="addUser()">
+            <!--Loan type dropdown box-->
+            <div class="form-group row">
+                <label for="account_Number" class="col-lg-4 text-right font-weight-bold">
+                    Account Number:
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" formControlName="account_Number" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="firstName" class="col-lg-4  text-right font-weight-bold">
+                    First Name:
+                </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" placeholder="Enter First Name (eg: Ashok)"
+                        formControlName="firstName" autofocus />
+
+                    <div *ngIf="submitted && editForm.controls.firstName.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.firstName.errors.required">
+                            First Name is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.firstName.errors.pattern">
+                            First Name must begin with Capital letter and length should be between 3 and 30
+                            characters..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF FIRST NAME-->
+            <!--LAST NAME TEXT BOX-->
+            <div class="form-group row">
+                <label for="lastName" class="col-lg-4  text-right font-weight-bold">
+                    Last Name:
+                </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" placeholder="Enter Last Name (eg: Vanga)"
+                        formControlName="lastName" />
+
+                    <div *ngIf="submitted && editForm.controls.lastName.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.lastName.errors.required">
+                            Last Name is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.lastName.errors.pattern">
+                            Last Name length should not exceede 20 characters..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF LAST NAME-->
+            <!--Age text box-->
+            <div class="form-group row">
+                <label for="userId" class="col-lg-4 text-right font-weight-bold">
+                    PAN Number:
+                </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" placeholder="Enter Your Aadhar Number (eg: 741085209630)"
+                        formControlName="userId" />
+
+                    <div *ngIf="submitted && editForm.controls.userId.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.userId.errors.required">
+                            PAN is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.userId.errors.pattern">
+                            Enter valid 10 digit PAN number..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Age-->
+            <!-- Mobile number text box-->
+            <div class="form-group row">
+                <label for="phone_Number" class="col-lg-4  text-right font-weight-bold">
+                    Mobile Number:
+                </label>
+                <div class="col-lg-8">
+                    <input type="number" class="form-control" placeholder="Enter Your Mobile Number (eg: 9876543210)"
+                        formControlName="phone_Number" />
+
+                    <div *ngIf="submitted && editForm.controls.phone_Number.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.phone_Number.errors.required">
+                            Mobile Number is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.phone_Number.errors.pattern">
+                            Mobile Number must be of Numeric and of 10 digits..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF MOBILE NUMBER-->
+
+            <!--EMAIL-->
+            <div class="form-group row">
+                <label for="email" class="col-lg-4 r text-right font-weight-bold">
+                    Email:
+                </label>
+                <div class="col-lg-8">
+                    <input type="email" class="form-control" placeholder="Enter Your Email (eg: abc@gmail.com)"
+                        formControlName="email" />
+
+                    <div *ngIf="submitted && editForm.controls.email.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.email.errors.required">
+                            Email is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.email.errors.email">
+                            Email is invalid..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF Email-->
+            <!--Password textbox -->
+            <div class="form-group row">
+                <label for="userName" class="col-lg-4  text-right font-weight-bold">
+                    Username:
+                </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" formControlName="userName" />
+
+                    <div *ngIf="submitted && editForm.controls.userName.errors">
+                        <div class="text-danger" *ngIf="editForm.controls.userName.errors.required">
+                            Username is required..!
+                        </div>
+                        <div class="text-danger" *ngIf="editForm.controls.userName.errors.pattern">
+                            Username must be of 8 characters..!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <!-- Submit and Cancel Buttons-->
+            <div class="text-center" style="margin-left:250px;">
+                <button class="btn btn-success">Save</button>&nbsp; &nbsp;
+                <button class="btn btn-danger" routerLink="admin-home/user-list">Cancel</button>&nbsp; &nbsp;
+            </div>
+        </form>
+    </div>
+</div>
+</div>

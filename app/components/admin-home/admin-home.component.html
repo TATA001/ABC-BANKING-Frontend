@@ -1,0 +1,48 @@
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<div class="row">
+    <div class="sidebar" id="mySidebar1" style="background-color: #4d9699;">
+        <div>
+            <img src="assets/images/icon.png" class="brand_logo" style="width: 150px; height:150px; margin-left:100px;"
+                alt="Logo"></div>
+        <br />
+        <h5 class="text-center" style="padding:2px; color: white;">&nbsp;Welcome, <b>Admin</b></h5>
+        <button class="btn btn-xs btn-warning" routerLink="user-list" style="margin-left: 20px; width: 160px;"><i
+                class='fas fa-user-cog'></i>&nbsp; Manage Users</button>
+        <button class="btn btn-xs btn-danger" style="margin-left: 20px; width: 140px;" (click)="logOut()"><i
+                class="fas fa-sign-out-alt"></i> Logout</button>
+        <hr>
+        <a href="https://outlook.office.com/mail/inbox" target="_blank"
+            style="padding:5px;font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-bookmark'></i>&nbsp;&nbsp; Bookmarks
+            <span class="badge badge-pill badge-info">0</span></a>
+
+        <hr>
+        <a href="https://outlook.office.com/calendar/view/month" target="_blank"
+            style="padding:5px; font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>&nbsp; Calender </a>
+        <hr>
+        <a href="https://outlook.office.com/mail/inbox" target="_blank"
+            style="padding:5px;font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-envelope-open'></i>&nbsp; Inbox <span
+                class="badge badge-pill badge-warning">124</span></a>
+        <hr>
+        <a href="https://outlook.office.com/mail/inbox" target="_blank"
+            style="padding:5px;font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-bell'></i>&nbsp; Notifications <span
+                class="badge badge-pill badge-danger">12</span></a>
+
+        <hr>
+        <a href="https://outlook.office.com/mail/inbox" target="_blank"
+            style="padding:5px;font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-layer-group'></i>&nbsp; Pending Tasks
+            <span class="badge badge-pill badge-primary">0</span></a>
+        <hr>
+        <a href="https://to-do.office.com/tasks/?fromOwa=true" target="_blank"
+            style="padding:5px;font-weight: bold;">&nbsp;&nbsp;<i class='fas fa-edit'></i>&nbsp; To-dos <span
+                class="badge badge-pill badge-success">5</span></a>
+
+    </div>
+</div>
+
+<div class="row" id="d5" style="background-color: #f3f5f3;background-size: cover; height:1092px; margin-right: -30px;">
+    <button (click)="w3_open()">☰</button>
+    <div class="row" style="margin: 0px 0 0 550px;">
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

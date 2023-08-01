@@ -1,0 +1,63 @@
+.row1{
+    margin-top: 25px;
+    width:100%;
+    border: 2px solid gray;
+    padding: 5px 5px 0px 5px;
+}
+
+.btn
+{
+    font-size: 20px;
+   margin-right: 0px;
+   padding:5px 10 15px 0;
+}
+#log1{
+    width: 1100px;
+    padding: 10px 1px;
+    margin-top: 25px;
+    
+}
+
+table{
+    text-align: center;
+    font-size: 20px;
+    width: 1097px;
+}
+th{
+    
+    padding-left: 15px;
+    width: 400px;
+}
+td{
+    height:50px;
+    width: 1200px;
+}
+#p{
+    width: 1200px;
+}
+
+.btn{
+    font-size: 20px;
+}
+
+.column {
+    float: left;
+    width: 1800px;
+    margin-left: -300px;
+    margin-top:0px;
+    margin-bottom: 16px;
+    padding: 0 8px 0 50px;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .errspan {
+    float: right;
+    margin-right: 506px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+    color:#555;
+}

@@ -1,0 +1,38 @@
+.row1{
+    width:100%;
+    border: 2px solid gray;
+    padding: 5px 5px 0px 5px;
+}
+
+.btn
+{
+   margin-right: 10px;
+   padding:5px 10 15px 0;
+}
+#log1{
+    width: 1100px;
+    padding: 10px 1px;
+    margin-top: 10px;
+    
+}
+
+table{
+    font-size: 20px;
+    text-align: center;
+    width: 1095px;
+}
+th{
+    padding-left: 15px;
+    width: 400px;
+}
+td{
+    height:50px;
+    width: 1200px;
+}
+#p{
+    width: 1200px;
+}
+
+.btn{
+    font-size: 20px;
+}

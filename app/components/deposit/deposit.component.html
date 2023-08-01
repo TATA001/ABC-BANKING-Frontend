@@ -1,0 +1,76 @@
+<div class="column" style="margin-top:200px;">
+    <!-- <div class="card"> -->
+    <div class="container" style="height:500px;">
+        <br />
+        <div>
+            <h2 class="text-secondary" style="padding: 10px 0 15px 15px;">Deposit Amount
+                <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                    &nbsp;Back</a></h2>
+            <hr style="margin-left: 0px; width:100%;height:5px;border-width:0;color:orange;background-color:orange">
+            <div>
+                <form class="row1" id="log1" [formGroup]="depositForm" (ngSubmit)="verifyDeposit()">
+                    <div class="form-group">
+                        <label for="deposit" style="font-size: 20px;" class="font-weight-bold">Deposit Amount<span
+                                class="text-danger">*</span></label>
+                        <input type="number" style="font-size: 20px;" class="form-control" formControlName="deposit"
+                            placeholder="Enter Amount (eg: 1000)" />
+                        <!--Predefined Structural Directives: *ngIf, *ngFor, *ngSwitchCase -->
+                        <div style="font-size: 20px;" *ngIf="submitted && depositForm.controls.deposit.errors"
+                            class="error">
+                            <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.required">
+                                Amount is required!
+                            </div>
+                            <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.min">
+                                Deposit Amount must be greater than 1000..!
+                            </div>
+                            <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.max">
+                                Deposit Amount exceeded the limit..!
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="text-center">
+                        &nbsp;&nbsp;&nbsp;<button style="font-size: 20px;" class="btn btn-success">Proceed</button>
+                        &nbsp;
+                        <button class="btn btn-danger" style="font-size: 20px;" type="reset">Reset</button> &nbsp;
+                        <br /></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- <div class="row1">
+    <div class="text-light" style="background-color:#555;">
+        <h3 class="text-light" style="padding: 10px 0 15px 15px;">Deposit Amount
+            <a class="btn btn-secondary" routerLink="/user" style="float: right;"><i class="fas fa-angle-left"></i>
+                &nbsp;Back</a></h3>
+    </div>
+    <div>
+        <form id="log1" [formGroup]="depositForm" (ngSubmit)="verifyDeposit()">
+            <div class="form-group">
+                <label for="deposit" class="font-weight-bold">Deposit Amount<span class="text-danger">*</span></label>
+                <input type="number" class="form-control" formControlName="deposit"
+                    placeholder="Enter Amount (eg: 1000)" />
+                <!--Predefined Structural Directives: *ngIf, *ngFor, *ngSwitchCase 
+                <div *ngIf="submitted && depositForm.controls.deposit.errors" class="error">
+                    <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.required">
+                        Amount is required!
+                    </div>
+                    <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.min">
+                        Deposit Amount must be greater than 1000..!
+                    </div>
+                    <div class="text-danger" *ngIf="depositForm.controls.deposit.errors.max">
+                        Deposit Amount exceeded the limit..!
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="text-center">
+                &nbsp;&nbsp;&nbsp;<button class="btn btn-success">Proceed</button> &nbsp;
+                <button class="btn btn-danger" type="reset">Reset</button> &nbsp;
+                <br /></div>
+        </form>
+    </div>
+</div>
+</div> -->
